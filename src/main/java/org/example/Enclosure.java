@@ -13,12 +13,15 @@ public class Enclosure {
         this.name = name;
     }
 
-    public int getSize() {
-        return size;
+    public ArrayList<Animal> getEnclosureAnimals() {
+        for (Animal animal : animals) {
+            System.out.println("Enclosure animals: "+ animal);
+        }
+        return animals;
     }
 
-    public ArrayList<Animal> getAnimals() {
-        return animals;
+    public int getSize() {
+        return size;
     }
 
     public String getName() {
@@ -40,8 +43,8 @@ public class Enclosure {
         for (int i = 0; i < animals.size(); i++) {
             totalWaste += animals.get(i).getWasteProducing();
         }
-
         return this.size / totalWaste;
 
     }
+
 }

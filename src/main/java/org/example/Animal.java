@@ -1,13 +1,17 @@
 package org.example;
 
+import java.util.ArrayList;
+
 public class Animal {
+    private int id;
     private String species;
     private int wasteProducing;
     private int livingSpace;
     private int age;
 
-    public Animal(String species, int wasteProducing, int livingSpace, int age) {
+    public Animal(String species, int id,  int wasteProducing, int livingSpace, int age) {
         this.species = species;
+        this.id = id;
         this.wasteProducing = wasteProducing;
         this.livingSpace = livingSpace;
         this.age = age;
@@ -29,8 +33,17 @@ public class Animal {
         return age;
     }
 
-    public void age(){
+    public void getAged() {
         this.age++;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return " Animal {" +  "species='" + species + " id= "+ id +"', wasteProducing=" + wasteProducing + ", livingSpace=" + livingSpace + '}';
     }
 
 
