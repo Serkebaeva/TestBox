@@ -32,10 +32,6 @@ public class ZooKeeper {
         return age;
     }
 
-    public String getSalary() {
-        return "usd per hour: " + this.salary;
-    }
-
     public String getDepartment() {
         return department;
     }
@@ -51,6 +47,10 @@ public class ZooKeeper {
     public int wageGrowthTo(int n) {
         this.salary += n;
         return this.salary;
+    }
+
+    public String getSalaryRate() {
+        return "usd per hour: " + this.salary;
     }
 
     public int calculateSalary(int n) {

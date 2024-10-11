@@ -8,6 +8,9 @@ public class Animal {
     private int wasteProducing;
     private int livingSpace;
     private int age;
+    private static int counter;
+
+    private static ArrayList<Animal> allAnimals = new ArrayList<>();
 
     public Animal(String species, int id,  int wasteProducing, int livingSpace, int age) {
         this.species = species;
@@ -15,6 +18,19 @@ public class Animal {
         this.wasteProducing = wasteProducing;
         this.livingSpace = livingSpace;
         this.age = age;
+        counter++;
+
+
+        // Add this animal to the static list of all animals
+        allAnimals.add(this);
+    }
+
+    // Static method to get all animals
+    public static void getAllAnimals() {
+        System.out.println("All animals in ZOO:");
+        for (Animal animal : allAnimals) {
+            System.out.println(animal);
+        }
     }
 
     public String getSpecies() {
@@ -43,8 +59,11 @@ public class Animal {
 
     @Override
     public String toString() {
-        return " Animal {" +  "species='" + species + " id= "+ id +"', wasteProducing=" + wasteProducing + ", livingSpace=" + livingSpace + '}';
+        return " Animal {" +  "species='" + species + "', id= "+ id +", wasteProducing=" + wasteProducing + ", livingSpace=" + livingSpace + '}';
     }
 
+    public static int getTotalAnimalsCreated() {
+        return counter;
+    }
 
 }

@@ -13,11 +13,11 @@ public class Enclosure {
         this.name = name;
     }
 
-    public ArrayList<Animal> getEnclosureAnimals() {
+    public void getEnclosureAnimals() {
+        System.out.println("Animals in "+ name + ":");
         for (Animal animal : animals) {
-            System.out.println("Enclosure animals: "+ animal);
+            System.out.println(animal);
         }
-        return animals;
     }
 
     public int getSize() {
