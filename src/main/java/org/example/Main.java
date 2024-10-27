@@ -11,7 +11,7 @@ public class Main {
         Animal monkey1 = new Animal("Monkey", 1,  2, 4, 5);
         System.out.println(monkey1.getAge());
         System.out.println("1 year later");
-        GlobalMethods.updateAge(monkey1);
+        monkey1.updateAge();
         System.out.println(monkey1.getSpecies());
         System.out.println(monkey1.getAge());
         Animal monkey2 = new Animal("Monkey", 2, 1, 2, 1);
@@ -29,23 +29,36 @@ public class Main {
         ZooKeeper worker1 = new ZooKeeper("John", "Doe", 28, 25, "Cleaning", 15);
         System.out.println("name: "+ worker1.getName()+ ", surname: "+ worker1.getSurname());
         System.out.println(worker1.getAge());
-        GlobalMethods.updateAge(worker1);
+        worker1.updateAge();
         System.out.println(worker1.getAge());
         System.out.println(worker1.getSalaryRate());
         worker1.wageGrowthTo(3);
         System.out.println(worker1.getSalaryRate());
-        System.out.println(worker1.getSalaryPerMonth());
-        System.out.println(worker1.calculateSalary(120));
-        System.out.println(worker1.calculateSalary(80));
-        enclosure.getEnclosureAnimals();
+        worker1.setWorkedHoursPerMonth(120);
+        System.out.println(worker1.calculateSalary());
+        worker1.setWorkedHoursPerMonth(140);
+        System.out.println(worker1.calculateSalary());
+        enclosure.printEnclosureAnimals();
         System.out.println();
         ArrayList parrots = new ArrayList<>();
         parrots.add(parrot1);
         Enclosure enclosure2 = new Enclosure(20, parrots, "Parrots Enclosure" );
-        enclosure2.getEnclosureAnimals();
+        enclosure2.printEnclosureAnimals();
         System.out.println();
         Animal.getAllAnimals();
         System.out.println(Animal.getTotalAnimalsCreated());
+        System.out.println(worker1.wageGrowthTo(-7));
+        Animal.getAllAnimals();
+        Zoo park1 = new Zoo("Park1");
+        park1.addEnclosure(enclosure);
+        park1.addEnclosure(enclosure2);
+        park1.printAllAnimalsInZoo();
+        park1.addEnclosure(enclosure);
+        park1.printAllAnimalsInZoo();
+        System.out.println(park1.validate());
+        park1.printAllAnimalsInZoo();
+
+
 
     }
 }

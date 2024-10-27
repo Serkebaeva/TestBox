@@ -8,7 +8,6 @@ public class ZooKeeper {
     private String department;
     private int performance;
     private int workedHoursPerMonth;
-    private int salaryPerMonth;
 
 
     public ZooKeeper(String name, String surname, int age, int salary, String department, int performance) {
@@ -40,11 +39,15 @@ public class ZooKeeper {
         return performance;
     }
 
-    public void getAged() {
+    public void updateAge() {
         this.age++;
+        wageGrowthTo(10);
     }
 
     public int wageGrowthTo(int n) {
+        if(n < 0) {
+            return -1;
+        }
         this.salary += n;
         return this.salary;
     }
@@ -53,13 +56,15 @@ public class ZooKeeper {
         return "usd per hour: " + this.salary;
     }
 
-    public int calculateSalary(int n) {
-        this.workedHoursPerMonth = n;
-        this.salaryPerMonth = workedHoursPerMonth * this.salary;
-        return salaryPerMonth;
+    public void setWorkedHoursPerMonth(int workedHoursPerMonth) {
+        this.workedHoursPerMonth = workedHoursPerMonth;
     }
 
-    public int getSalaryPerMonth() {
-        return salaryPerMonth;
+    public int calculateSalary() {
+        return this.workedHoursPerMonth * this.salary;
     }
+
+
+
+
 }

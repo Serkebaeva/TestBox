@@ -49,7 +49,7 @@ public class Animal {
         return age;
     }
 
-    public void getAged() {
+    public void updateAge() {
         this.age++;
     }
 
